@@ -1,26 +1,31 @@
-package com.android.recyclerview.mvvm.view;
+package com.android.recyclerview.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.android.recyclerview.mvvm.R;
+
+import com.android.recyclerview.R;
+import com.android.recyclerview.presenter.UserPresenter;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView userlist;
-    CustomAdapter customAdapter;
+    RecyclerView userList;
+    CustomeAdapter customeAdapter;
     RecyclerView.LayoutManager layoutManager;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        userlist = findViewById(R.id.usrlist);
+        userList = findViewById(R.id.usrlist);
+        customeAdapter = new CustomeAdapter(new UserPresenter());
         layoutManager = new LinearLayoutManager(this);
-        userlist.setLayoutManager(layoutManager);
-        customAdapter = new CustomAdapter(this);
-        userlist.setAdapter(customAdapter);
+        userList.setLayoutManager(layoutManager);
+        userList.setAdapter(customeAdapter);
     }
 }

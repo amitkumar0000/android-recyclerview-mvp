@@ -1,4 +1,4 @@
-package com.android.recyclerview.mvvm.model;
+package com.android.recyclerview.model;
 
 public class UserContent {
 
